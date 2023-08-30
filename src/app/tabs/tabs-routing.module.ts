@@ -20,6 +20,14 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'tab4',
+        loadChildren: () => import('../tap4/tap4.module').then(m => m.Tap4PageModule)
+      },
+      {
+        path: 'tab1/:title',
+        loadChildren: () => import('../album/album.module').then(m => m.AlbumPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

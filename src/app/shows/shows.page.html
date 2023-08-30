@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-buttons slot="start"> <ion-icon name="chevron-back" size="large"></ion-icon> 
+        <ion-text color="primary">Library</ion-text> </ion-buttons>
+    </ion-buttons>
+    <ion-title>shows</ion-title>
+    <ion-buttons  id="popover-button" slot="end" class="custom-icon-container">
+      <ion-icon class="icon-color" name="ellipsis-horizontal"></ion-icon>
+    </ion-buttons>
+    <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item [button]="true" [detail]="false">Follow a Show by URL</ion-item>
+            <ion-item [button]="true" [detail]="false">Edit Shows</ion-item>
+            <ion-item [button]="true" [detail]="false">Title</ion-item>
+            <ion-item [button]="true" [detail]="false">Date Followed</ion-item>
+            <ion-item [button]="true" [detail]="false">Date Updated</ion-item>
+            <ion-item [button]="true" [detail]="false">Manual</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">shows</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="ion-padding">
+  <ion-segment value="buttons">
+    <ion-segment-button value="buttons">
+      <ion-label><b>Followed</b></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label><b>All</b></ion-label>
+    </ion-segment-button>
+  </ion-segment></div>
+</ion-content>
