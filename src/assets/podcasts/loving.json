@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "image": "discovery_add_to_cart__dvcjgnh1cxaq_large",
+      "title": "No matter where you are. just plug in your earphones and get ready to teleport and travel around the world",
+      "update": "PLACES & TRAVEL"
+    },
+    { "id": 2, "image": "ben", "title": "What doest it mean to be truly Limitless? it's an exploration of what inspires us, what makes us feel see..", "update": "SOCIETY & CULTURE"},
+    { "id": 3, "image": "purpose", "title": "Season 2: In 1974 after experiencing financial hardship, Michael Taylor joined a local church in the rolling", "update": "TRUE CRIME" },
+    { "id": 4, "image": "crime", "title": "First Principle is a fortnightly interview podcast comprising authentic, candid, and insightful co", "update": "ENTREPRENEURSHIP" },
+    { "id": 5, "image": "humberman", "title": "Desiger, actor, and creative powerhouse Masaba Gupta sits down with her fellow badass entrepreneurs", "update": "SOCIETY & CULTURE" },
+    {
+      "id": 6,
+      "image": "mahabratham",
+      "title": "Are you fascinated by the stories and mythology of ancient India? Do you want to learn more about the",
+      "update": "HINDUISM"
+    },
+    { "id": 7, "image": "good_inside", "title": "Food From Here And There is a podcast series hosted by 17-year-old baker Elisha Parikh, Better", "update": "FOOD" },
+    { "id": 8, "image": "the_ranveer", "title": "In Figuring Out, I showcase my growth, challenges and shortcomings that are a part of my", "update": "ENTREPRENEURSHIP" }
+  ]

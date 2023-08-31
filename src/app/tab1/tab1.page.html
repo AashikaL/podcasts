@@ -14,19 +14,34 @@
   </ion-header>
   <ion-list>
     <ion-row class="ion-no-padding">
-      <swiper-container [slidesPerView]="2">
-        <swiper-slide class="ion-padding" *ngFor="let item of items" class="swiper-card" tappable >
-          <ion-card class="custom-card ion-padding" [attr.data-color]="item.color">
+      <ion-label>
+        <h1 class="ion-padding-start"><b>Up Next</b><ion-icon class="center ion-padding-start"
+            name="chevron-forward-outline"></ion-icon>
+        </h1>
+      </ion-label>
+      <swiper-container class="swiper-container" [slidesPerView]="2">
+        <swiper-slide class="swiperBigSlide" *ngFor="let item of items" tappable>
+          <ion-card class="ion-padding card-margin" [attr.data-color]="item.color">
             <div>
-              <img class="spacing ion-padding" [src]="item.images" />
+              <img class="card-img ion-padding" [src]="item.images" />
+              <ion-card-subtitle>{{item.resume}}</ion-card-subtitle>
               <span class="title"><b>{{ item.title }}</b></span><br>
               <span class="title"><b>{{ item.description }}</b></span><br><br>
+              <div class="audio-player">
+                <ion-icon name="play"  *ngIf="!item.isPlaying" (click)="playAudio(item)"></ion-icon>
+                <ion-icon name="pause" *ngIf="item.isPlaying" (click)="pauseAudio(item)"></ion-icon>
+                <div style="width: 198px;">
+                <input type="range" [max]="item.duration" [value]="item.currentTime" #seekInput
+                  (input)="seekAudio(item, seekInput.value)" style="width: 40px;">
+                <span>{{ formatTime(item.currentTime) }}</span>
+              </div>
+              </div>
             </div>
           </ion-card>
         </swiper-slide>
       </swiper-container>
     </ion-row></ion-list>
-
+    
   <ion-row>
     <ion-label class="ion-padding">
       <h1><b>You Might Like</b><ion-icon class="center ion-padding-start" name="chevron-forward-outline"></ion-icon>
@@ -61,23 +76,24 @@
 
   <ion-row>
     <ion-label class="ion-padding-start">
-      <h1 class="ion-no-padding-bottom"><b>Business</b><ion-icon class="center ion-padding-start" name="chevron-forward-outline"></ion-icon></h1>
+      <h1 class="ion-no-padding-bottom"><b>Business</b><ion-icon class="center ion-padding-start"
+          name="chevron-forward-outline"></ion-icon></h1>
     </ion-label>
     <swiper-container [slidesPerView]="1" *ngFor="let entry of business;">
       <swiper-slide *ngFor="let album of entry.albums" tappable>
-          <ion-item lines="full">
-            <ion-thumbnail slot="start">
-              <img class="radius" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
-            </ion-thumbnail>
-            <div class="d-flex">
-              <ion-row>
-                <p class="update"><b>{{album.update}}</b></p>
-              </ion-row>
-              <ion-row>
-                <ion-label class="ion-text-wrap album-title"><b>{{ album.title }}</b></ion-label>
-              </ion-row>
-            </div>
-          </ion-item>
+        <ion-item lines="full">
+          <ion-thumbnail slot="start">
+            <img class="radius" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
+          </ion-thumbnail>
+          <div class="d-flex">
+            <ion-row>
+              <p class="update"><b>{{album.update}}</b></p>
+            </ion-row>
+            <ion-row>
+              <ion-label class="ion-text-wrap album-title"><b>{{ album.title }}</b></ion-label>
+            </ion-row>
+          </div>
+        </ion-item>
       </swiper-slide>
     </swiper-container>
   </ion-row>
@@ -85,25 +101,43 @@
   <ion-row class="top">
     <swiper-container [slidesPerView]="1" *ngFor="let entry of busines;">
       <swiper-slide *ngFor="let album of entry.albums" tappable>
-          <ion-item  lines="none">
-            <ion-thumbnail slot="start">
-              <img class="radius" class="img" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
-            </ion-thumbnail>
-            <div class="d-flex">
-              <ion-row>
-                <p class="update"><b>{{album.update}}</b></p>
-              </ion-row>
-              <ion-row>
-                <ion-label class="ion-text-wrap album-title"><b>{{ album.title }}</b></ion-label>
-              </ion-row>
-              <ion-row>
-                <ion-icon slot="end" name="ellipsis-horizontal-outline"></ion-icon>
-              </ion-row>
-            </div>
-           
-          </ion-item>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img class="radius" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
+          </ion-thumbnail>
+          <div class="d-flex">
+            <ion-row>
+              <p class="update"><b>{{album.update}}</b></p>
+            </ion-row>
+            <ion-row>
+              <ion-label class="ion-text-wrap album-title"><b>{{ album.title }}</b></ion-label>
+            </ion-row>
+
+          </div>
+        </ion-item>
       </swiper-slide>
     </swiper-container>
   </ion-row>
+
+  <ion-list>
+    <ion-row class="ion-no-padding">
+      <ion-label>
+        <h1 class="ion-padding-start"><b>You Might Like</b><ion-icon class="center ion-padding-start"
+            name="chevron-forward-outline"></ion-icon>
+        </h1>
+      </ion-label>
+      <swiper-container class="swiper-container" [slidesPerView]="2.4" *ngFor="let entry of loving;">
+        <swiper-slide class="swiperBigSlide" *ngFor="let album of entry.albums" tappable (click)="openAlbum(album)">
+          <ion-card class="ion-padding card-margin" [attr.data-color]="entry.color">
+            <img class="ion-padding card-img" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
+            <div>
+              <span class="title">{{ album.title }}</span><br><br>
+              <ion-text color="medium"> {{ album.update }} </ion-text>
+            </div>
+          </ion-card>
+        </swiper-slide>
+      </swiper-container>
+    </ion-row></ion-list>
+
 
 </ion-content>

@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "image": "discovery_add_to_cart__dvcjgnh1cxaq_large",
+      "title": "add to cart",
+      "update": "Update Today"
+    },
+    { "id": 2, "image": "ben", "title": "Ben", "update": "Update 15 August"},
+    { "id": 3, "image": "purpose", "title": "Mental Health", "update": "Daily" },
+    { "id": 4, "image": "crime", "title": "Ture Crime", "update": "Weekly" },
+    { "id": 5, "image": "humberman", "title": "Huberman Lab", "update": "Update 21 August" },
+    {
+      "id": 6,
+      "image": "mahabratham",
+      "title": "Mahabratham",
+      "update": "Weekly"
+    },
+    { "id": 7, "image": "good_inside", "title": "Good Inside", "update": "Update 15 August" },
+    { "id": 8, "image": "the_ranveer", "title": "The Ranner Show", "update": "Weekly" }
+  ]

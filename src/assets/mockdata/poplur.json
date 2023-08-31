@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "image": "dear_alana",
+      "title": "Dear Alana",
+      "update": "Daily"
+    },
+    { "id": 2, "image": "body", "title": "Dead Body", "update": "Update 15 August"},
+    { "id": 3, "image": "discovery_slow_burn__f7qf5rdx4jm2_large", "title": "Slow burn", "update": "Daily" },
+    { "id": 4, "image": "first", "title": "Up First", "update": "Weekly" },
+    { "id": 5, "image": "american", "title": "American History Hit", "update": "Twice weekly" },
+    {
+      "id": 6,
+      "image": "morbid",
+      "title": "Morbid",
+      "update": "Weekly"
+    },
+    { "id": 7, "image": "stuff", "title": "Stuff You should", "update": "Update 15 August" },
+    { "id": 8, "image": "hidden", "title": "Hidden Brain", "update": "Weekly" }
+  ]
