@@ -8,10 +8,42 @@
 </ion-header>
 
 <ion-content *ngIf="data" [style.--custombg]="data?.backgroundColor">
-  <div class="ion-text-center image-box">
-    <img [src]="'/assets/images/albums/'+dasherize(data?.image)+'.jpg'" *ngIf="data">
-    <p>{{ data?.artist }}</p>
+  <div class="ion-text-center ion-no-padding image-box">
+    <img [src]="'/assets/podcasts/albums/'+dasherize(data.image)+'.jpg'" *ngIf="data">
+    <p class="discription"><b>{{ data?.title }} </b></p>
+    <p class="discription">{{data?. artist}}</p>
+    <ion-button color="light" class="btn-color">
+      <ion-icon slot="start" name="play"></ion-icon>
+      Resume
+    </ion-button>
   </div>
 
 
+  <div class="main">
+    <ion-row class="row">
+      <ion-col size="12" class="album-info">
+        <p class="text ion-padding"><b>{{ data.discription }}</b></p>
+        <p class="released ion-padding">{{ data.released }}</p>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- List of tracks -->
+    <ion-list>
+      <ion-item href="#">
+        <ion-label>
+          <h1><b>Episodes</b></h1>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngFor="let t of data.tracks" lines="none">
+        <ion-item>
+          <ion-label><b class="update">{{t.update}}</b>
+            <h5><b>{{ t.title }}</b></h5>
+            <p>{{ t.sub }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-icon slot="end" size="small" name="ellipsis-horizontal" color="light"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

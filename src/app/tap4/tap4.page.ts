@@ -11,5 +11,24 @@ export class Tap4Page implements OnInit {
 
   ngOnInit() {
   }
-
+  images = [{
+    img: '../assets/search/unnamed (1).png'
+  },
+  {
+    img: '../assets/search/unnamed (2).png'
+  }, {
+    img: '../assets/search/unnamed (9).png'
+  }, {
+    img: '../assets/search/unnamed (4).png'
+  }, {
+    img: '../assets/search/unnamed (5).png'
+  }, {
+    img: '../assets/search/unnamed (6).png'
+  },
+  {
+    img: '../assets/search/unnamed (7).png'
+  },
+  {
+    img: '../assets/search/unnamed (8).png'
+  },]
 }

@@ -1,15 +1,14 @@
 {
-    "artist": "IVM PODCASTS",
+    "artist": "IVM podcasts",
     "backgroundColor": "#3d4c6c",
     "image": "discovery_add_to_cart__dvcjgnh1cxaq_large",
     "released": "Health & Fitness . Daily",
-    "title": "Add to Card",
+    "title": "Add to Cart",
     "discription": "If You tried of relying on your fickle motivation to get things done, if you are tired of starting beacuse you fail to see things through.",
     "tracks": [
       { "title": "Dr. Vighesh Devraj: Ayurvedic Healing & Transformation", "sub":"In this episode of The Habit Coach podcast, Ashdin Doctor hosts Dr.vignesh..", "update": "10 AGO", "img": "discovery_add_to_cart__dvcjgnh1cxaq_large" },
       { "title": "30- minte Sleep Routine", "sub": "While we drift into slumber, our body undertakes an automatic temperature adujustment that resonates even on", "update": "3D AGO"},
       { "title": "How to Respond to Good News","sub": "While we drift into slumber, our body undertakes an automatic temperature adujustment that resonates even on", "update": "10 AGO" },
-      { "title": "Aditya Gupta: Sports & Businees Parallels", "sub":"In this episode of The Habit Coach podcast, Ashdin Doctor hosts Dr.vignesh.." ,"update": "10 AGO" },
-      { "title": "Goal Attainment Strategies", "sub":"Prodatory animals, as well as humans, are subsceptible to the confusion effect during ther pursuits. Predators", "update": "21 AUG" }
+      { "title": "Aditya Gupta: Sports & Businees Parallels", "sub":"In this episode of The Habit Coach podcast, Ashdin Doctor hosts Dr.vignesh.." ,"update": "10 AGO" }
     ]
   }

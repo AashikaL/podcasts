@@ -8,12 +8,14 @@ import albums from '../../assets/mockdata/albums/index';
   styleUrls: ['./album.page.scss'],
 })
 export class AlbumPage implements OnInit{
+  isPlaying: boolean = false;
   albumData: any = albums; 
   data:any;
   constructor(private activatedRoute: ActivatedRoute) { } 
   ngOnInit() { 
     console.log('alubmdata',this.albumData)    
     const title = this.activatedRoute.snapshot.paramMap.get('title'); 
+    console.log('title', title);
     if (title) { 
       const decodedTitle = decodeURIComponent(title); 
       this.data = this.albumData[title];

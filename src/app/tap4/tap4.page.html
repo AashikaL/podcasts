@@ -11,4 +11,11 @@
     </ion-toolbar>
     <ion-searchbar  show-clear-button="focus" show-cancel-button="focus" placeholder="Shows, Episodes and More"></ion-searchbar>
   </ion-header>
+  <ion-row>
+    <ion-col size="6" *ngFor="let image of images">
+      <ion-thumbnail class="size">
+        <img alt="Silhouette of mountains" [src]="image.img" />
+      </ion-thumbnail>
+    </ion-col>
+  </ion-row>
 </ion-content>

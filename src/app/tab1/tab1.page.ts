@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { StorageService } from '../storage.service';
 import might from '../../assets/podcasts/might.json';
 import popular from '../../assets/podcasts/poplur.json';
@@ -15,10 +15,10 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  audio: HTMLAudioElement = new Audio();
-  isPlaying: boolean = false;
-  duration: number = 0;
-  currentTime: number = 0;
+  @ViewChild('seekInput') seekInput!: ElementRef;
+
+  audioElement!: HTMLAudioElement;
+
 
   might = [{
     albums: might
@@ -32,14 +32,14 @@ export class Tab1Page {
   busines = [{
     albums: busines
   }]
-loving = [{
-  albums: loving,
-  color: 'green'
-},{
-  color:'green'
-},{
-  color:'red'
-}]
+  loving = [{
+    albums: loving,
+    color: 'green'
+  }, {
+    color: 'green'
+  }, {
+    color: 'red'
+  }]
 
 
   items: any[] = [
@@ -49,7 +49,9 @@ loving = [{
       title: 'Chai & Chithi 15',
       description: 'Welcome to Chai and Chithi, a segment where we take fan stories mailed in to us, as well as share so..',
       color: 'brown',
-      audiourl:"../assets/hukum.mp3"
+      audiourl: "../assets/hukum.mp3",
+      isPlaying: false,
+      currentTime: 0,
     },
     {
       images: '../assets/podcasts/albums/mahabratham.jpg',
@@ -57,31 +59,36 @@ loving = [{
       title: 'Mahabharata Episode',
       description: 'Welcome to Chai and Chithi, a segment where we take fan stories mailed in to us, as well as share so..',
       color: 'green',
-      audiourl:"https://wynk.in/u/hSC0f7832"
+      audiourl: "https://wynk.in/u/hSC0f7832",
+      isPlaying: false,
+      currentTime: 0,
     },
     {
       images: '../assets/podcasts/albums/ben.jpg',
       resume: 'Resume . 21 AUG',
       title: 'Lakhan Jathani and Nikhil Menon (Mizu lzakay)',
       description: 'On this episode of Food From Here and There, I take to Japan with Lakshan Jethani...',
-      color: 'red'
+      color: 'red',
+      isPlaying: false,
+      currentTime: 0,
     },
     {
       images: '../assets/podcasts/albums/humberman.jpg',
       resume: 'Resume . 1 MAR',
       title: 'Dr. Davind Linden: Life, Death & the Neuroscience of Your Unique Experience',
       description: 'In this episode, my guest is Dr. David',
-      color: 'blue'
+      color: 'blue',
+      isPlaying: false,
+      currentTime: 0,
     },
   ];
-  constructor(private router: Router, private sanitizer: DomSanitizer ) {
-    this.audio.src
+  constructor(private router: Router, private sanitizer: DomSanitizer) {
   }
 
-  openAlbum(album:any) {
+  openAlbum(album: any) {
     const titleEscaped = encodeURIComponent(album.title);
     this.router.navigateByUrl(`/tabs/tab1/${titleEscaped}`);
-    console.log('v',`${titleEscaped}`)
+    console.log('v', `${titleEscaped}`)
   }
 
   dasherize(string: any) {
@@ -90,50 +97,50 @@ loving = [{
     });
   };
 
-  
-  // Inside your component class
-playAudio(item:any) {
-  item.isPlaying = true; // Assuming you're updating the item's play state
-  item.playbackInterval = setInterval(() => {
-    if (item.currentTime < item.duration) {
-      item.currentTime += 1; // Increment by 1 second (adjust as needed)
-    } else {
-      clearInterval(item.playbackInterval);
+  currentAudio: HTMLAudioElement | null = null;
+
+  playAudio(item: any) {
+    if (this.currentAudio) {
+      this.currentAudio.pause(); // Pause the currently playing audio
+    }
+
+    // Create a new audio element for the selected item
+    const audioElement = new Audio(item.audiourl);
+
+    // Add timeupdate event listener to update progress
+    audioElement.addEventListener('timeupdate', () => {
+      item.currentTime = audioElement.currentTime / 60; // Convert seconds to minutes
+    });
+
+    // Add ended event listener to reset the player when audio ends
+    audioElement.addEventListener('ended', () => {
       item.isPlaying = false;
-      // Handle playback completion
+      item.currentTime = 0;
+      audioElement.currentTime = 0;
+    });
+
+    audioElement.play();
+    item.isPlaying = true;
+
+    // Set the currentAudio to the newly created audio element
+    this.currentAudio = audioElement;
+  }
+
+  pauseAudio(item: any) {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
     }
-  }, 1000); // Update every 1 second (adjust as needed)
-}
-
-pauseAudio(item:any) {
-  item.isPlaying = false;
-  clearInterval(item.playbackInterval);
-}
-
-
-  updateTime(): void {
-    this.duration = this.audio.duration;
-    this.currentTime = this.audio.currentTime;
+    item.isPlaying = false;
   }
 
- 
-  formatTime(time: number): string {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  }
-
-  seekAudio(item: any, time: number): void {
-    if (!isNaN(time)) {
-      this.audio.currentTime = time;
-      item.currentTime = time; // Update the current time for the item
+  seekAudio(item: any, currentTimeInMinutes: number) {
+    if (this.currentAudio) {
+      this.currentAudio.currentTime = currentTimeInMinutes * 60;
     }
-  }
-  getProgressBarWidth(item: any): string {
-    const progress = (item.currentTime / item.duration) * 100;
-    return progress + '%';
+    item.currentTime = currentTimeInMinutes;
   }
 }
+
 
 
 
