@@ -123,11 +123,10 @@ pauseAudio(item:any) {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
 
-  seekAudio(item: any, time: string): void {
-    const numericTime = parseFloat(time);
-    if (!isNaN(numericTime)) {
-      this.audio.currentTime = numericTime;
-      item.currentTime = numericTime; // Update the current time for the item
+  seekAudio(item: any, time: number): void {
+    if (!isNaN(time)) {
+      this.audio.currentTime = time;
+      item.currentTime = time; // Update the current time for the item
     }
   }
   getProgressBarWidth(item: any): string {

@@ -7,13 +7,17 @@ import albums from '../../assets/mockdata/albums/index';
   templateUrl: './album.page.html',
   styleUrls: ['./album.page.scss'],
 })
-export class AlbumPage {
+export class AlbumPage implements OnInit{
   albumData: any = albums; 
+  data:any;
   constructor(private activatedRoute: ActivatedRoute) { } 
-  ngOnInit() { console.log(this.albumData)    
+  ngOnInit() { 
+    console.log('alubmdata',this.albumData)    
     const title = this.activatedRoute.snapshot.paramMap.get('title'); 
-    if (title) { const decodedTitle = decodeURIComponent(title); 
-      this.albumData = this.albumData[title]; 
+    if (title) { 
+      const decodedTitle = decodeURIComponent(title); 
+      this.data = this.albumData[title];
+      console.log('data', this.data);
     } 
   }
   dasherize(string: any) {

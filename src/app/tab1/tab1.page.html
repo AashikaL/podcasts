@@ -28,20 +28,22 @@
               <span class="title"><b>{{ item.title }}</b></span><br>
               <span class="title"><b>{{ item.description }}</b></span><br><br>
               <div class="audio-player">
-                <ion-icon name="play"  *ngIf="!item.isPlaying" (click)="playAudio(item)"></ion-icon>
+                <ion-icon name="play" *ngIf="!item.isPlaying" (click)="playAudio(item)"></ion-icon>
                 <ion-icon name="pause" *ngIf="item.isPlaying" (click)="pauseAudio(item)"></ion-icon>
                 <div style="width: 198px;">
-                <input type="range" [max]="item.duration" [value]="item.currentTime" #seekInput
-                  (input)="seekAudio(item, seekInput.value)" style="width: 40px;">
-                <span>{{ formatTime(item.currentTime) }}</span>
-              </div>
+                  <ion-progress-bar [value]="item.currentTime" #seekInput
+                    (input)="seekAudio(item, seekInput.value)"></ion-progress-bar>
+                  <!-- <input type="range" [max]="item.duration" [value]="item.currentTime" #seekInput
+                  (input)="seekAudio(item, seekInput.value)" style="width: 40px;"> -->
+                  <span>{{ formatTime(item.currentTime) }}</span>
+                </div>
               </div>
             </div>
           </ion-card>
         </swiper-slide>
       </swiper-container>
     </ion-row></ion-list>
-    
+
   <ion-row>
     <ion-label class="ion-padding">
       <h1><b>You Might Like</b><ion-icon class="center ion-padding-start" name="chevron-forward-outline"></ion-icon>

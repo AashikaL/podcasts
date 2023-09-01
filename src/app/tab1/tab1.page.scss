@@ -28,10 +28,12 @@ ion-content {
     width: 120px;
     height: auto;
 }
+
 swiper-container {
     width: 100%;
     height: 100%;
 }
+
 .swiper-container {
     width: 792px;
     height: 100%;
@@ -67,10 +69,12 @@ ion-card[data-color="green"] {
     background-color: rgb(94, 44, 44);
     color: white;
 }
+
 ion-card[data-color="red"] {
     background-color: rgb(138, 231, 227);
     color: white;
 }
+
 ion-card[data-color="blue"] {
     background-color: rgb(129, 145, 219);
     color: white;
@@ -107,48 +111,45 @@ ion-thumbnail {
     width: 260px;
     margin: 16px;
 }
-.card-margin{
+
+.card-margin {
     margin-top: 8px;
 }
+
 .swiperBigSlide {
     width: 280px !important;
 }
-.card-img{
+
+.card-img {
     width: 223px;
     height: 235px;
-    object-fit:contain;
-    
+    object-fit: contain;
+
 }
+
 .audio-player {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .audio-player ion-icon {
+}
+
+.audio-player ion-icon {
     cursor: pointer;
-  }
-  
-  .audio-player input[type="progress"] {
+}
+
+.audio-player input[type="progress"] {
     flex: 1;
     margin: 0 10px;
-  }
-  
-  .audio-player span {
+}
+
+.audio-player span {
     white-space: nowrap;
-  }
-/* Adjust the styling to match your design */
-ion-progress-bar[type="range"] {
-    width: 40px; /* Width of the progress bar */
-    height: 5px; /* Height of the progress bar */
-    background-color: transparent; /* Background color of the progress bar */
-    --ion-background-color: transparent; /* Background color of the progress bar */
-    --range-background: transparent; /* Background color of the progress bar */
-    --bar-background-inactive: #ccc; /* Inactive part of the progress bar */
-  }
-  
-  ion-progress-bar[type="range"] .range-knob-handle {
-    width: 10px; /* Width of the progress bar knob */
-    height: 10px; /* Height of the progress bar knob */
-  }
-  
+}
+
+ion-progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 25px;
+    border: 1px solid var(--ion-color-primary);
+    margin: auto 10px;
+}

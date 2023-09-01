@@ -1,16 +1,16 @@
 <ion-header [translucent]="true">
-  <ion-toolbar [style.--background]="albumData?.backgroundColor">
+  <ion-toolbar [style.--background]="data?.backgroundColor">
     <ion-buttons slot="start">
-      <ion-back-button text="" color="light" defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button text="" color="dark" defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">{{ albumData.title }}</ion-title>
+    <ion-title color="light">{{ data?.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="albumData" [style.--custombg]="albumData?.backgroundColor">
+<ion-content *ngIf="data" [style.--custombg]="data?.backgroundColor">
   <div class="ion-text-center image-box">
-    <img [src]="'/assets/images/albums/'+dasherize(albumData.image)+'.jpg'" *ngIf="albumData">
-    <p>{{ albumData?.artist }}</p>
+    <img [src]="'/assets/images/albums/'+dasherize(data?.image)+'.jpg'" *ngIf="data">
+    <p>{{ data?.artist }}</p>
   </div>
 
 
