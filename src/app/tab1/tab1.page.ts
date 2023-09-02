@@ -103,18 +103,13 @@ export class Tab1Page {
 
   playAudio(item: any) {
     if (this.currentAudio) {
-      this.currentAudio.pause(); // Pause the currently playing audio
+      this.currentAudio.pause();
     }
-
-    // Create a new audio element for the selected item
     const audioElement = new Audio(item.audiourl);
-
-    // Add timeupdate event listener to update progress
+   
     audioElement.addEventListener('timeupdate', () => {
-      item.currentTime = audioElement.currentTime / 60; // Convert seconds to minutes
+      item.currentTime = audioElement.currentTime / 60; 
     });
-
-    // Add ended event listener to reset the player when audio ends
     audioElement.addEventListener('ended', () => {
       item.isPlaying = false;
       item.currentTime = 0;
@@ -124,8 +119,8 @@ export class Tab1Page {
     audioElement.play();
     item.isPlaying = true;
 
-    // Set the currentAudio to the newly created audio element
     this.currentAudio = audioElement;
+    console.log('audio',this.currentAudio)
   }
 
   pauseAudio(item: any) {

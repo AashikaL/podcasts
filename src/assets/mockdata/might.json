@@ -3,6 +3,7 @@
       "id": 1,
       "image": "discovery_add_to_cart__dvcjgnh1cxaq_large",
       "title": "add to cart",
+      "audiourl": "assets/mockdata/hukum.mp3",
       "update": "Update Today"
     },
     { "id": 2, "image": "ben", "title": "Ben", "update": "Update 15 August"},

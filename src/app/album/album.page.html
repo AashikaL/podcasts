@@ -12,9 +12,9 @@
     <img [src]="'/assets/podcasts/albums/'+dasherize(data.image)+'.jpg'" *ngIf="data">
     <p class="discription"><b>{{ data?.title }} </b></p>
     <p class="discription">{{data?. artist}}</p>
-    <ion-button color="light" class="btn-color">
-      <ion-icon slot="start" name="play"></ion-icon>
-      Resume
+    <ion-button color="light" class="btn-color" (click)="isPlaying ? pauseAudio(data) : playAudio(data)">
+      <ion-icon [name]="isPlaying ? 'pause' : 'play'"></ion-icon>
+      {{ isPlaying ? 'Pause' : 'Resume' }}
     </ion-button>
   </div>
 
@@ -42,7 +42,7 @@
             <p>{{ t.sub }}</p>
           </ion-label>
         </ion-item>
-        <ion-icon slot="end" size="small" name="ellipsis-horizontal" color="light"></ion-icon>
+        <ion-icon slot="end" size="small" name="ellipsis-horizontal" color="dark"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
