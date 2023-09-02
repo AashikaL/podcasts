@@ -1,0 +1,155 @@
+ion-content {
+    --padding-top: 40px;
+}
+
+.section-header {
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.custom-card {
+    width: 250px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacing {
+    padding: 10px;
+}
+
+.swiper-card {
+    margin-bottom: -11px;
+}
+
+.card-image {
+    width: 120px;
+    height: auto;
+}
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container {
+    width: 792px;
+    height: 100%;
+}
+
+swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.margin {
+    margin: 0;
+    color: gray;
+}
+
+.update {
+    margin: 0;
+    color: gray;
+    font-size: 12px;
+}
+
+ion-card[data-color="brown"] {
+    background-color: rgb(90, 67, 67);
+    color: white;
+    /* Set appropriate text color for better readability */
+}
+
+ion-card[data-color="green"] {
+    background-color: rgb(94, 44, 44);
+    color: white;
+}
+
+ion-card[data-color="red"] {
+    background-color: rgb(138, 231, 227);
+    color: white;
+}
+
+ion-card[data-color="blue"] {
+    background-color: rgb(129, 145, 219);
+    color: white;
+}
+
+.center {
+    align-items: center;
+    display: inline-flex;
+    margin: -5px;
+    color: gray;
+    font-weight: bold;
+}
+
+.album-title {
+    font-size: 17px;
+}
+
+.radius {
+    border-radius: 5%;
+}
+
+ion-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+.top {
+    margin-top: -15px;
+}
+
+.card {
+    width: 260px;
+    margin: 16px;
+}
+
+.card-margin {
+    margin-top: 8px;
+}
+
+.swiperBigSlide {
+    width: 280px !important;
+}
+
+.card-img {
+    width: 223px;
+    height: 235px;
+    object-fit: contain;
+
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.audio-player ion-icon {
+    cursor: pointer;
+}
+
+.audio-player input[type="progress"] {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.audio-player span {
+    white-space: nowrap;
+}
+
+ion-progress-bar {
+    width: 20%;
+    height: 10px;
+    border-radius: 25px;
+    border: 1px solid var(--ion-color-primary);
+    margin: auto 10px;
+}

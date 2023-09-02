@@ -12,5 +12,18 @@
       <ion-title size="large">Browse</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  <ion-row>
+    <ion-label class="ion-padding-start">
+      <h1><b>Top Shows</b><ion-icon class="center ion-padding-start" name="chevron-forward-outline"></ion-icon></h1>
+    </ion-label>
+    <swiper-container [slidesPerView]="2.4" *ngFor="let entry of might;">
+      <swiper-slide *ngFor="let album of entry.albums" tappable>
+        <div class="spacing ion-padding">
+          <img class="radius" [src]="'/assets/podcasts/albums/' + dasherize(album.image) + '.jpg'" />
+          <span class="title">{{ album.title }}</span>
+          <p class="margin">{{album.update}}</p>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </ion-row>
 </ion-content>

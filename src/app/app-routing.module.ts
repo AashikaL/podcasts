@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: 'album',
     loadChildren: () => import('./album/album.module').then( m => m.AlbumPageModule)
-  }
+  },
 ];
 @NgModule({
   imports: [

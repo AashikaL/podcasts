@@ -150,6 +150,8 @@ ion-progress-bar {
     width: 20%;
     height: 10px;
     border-radius: 25px;
-    border: 1px solid var(--ion-color-primary);
+    border: 1px solid var(--ion-color-light);
     margin: auto 10px;
+    background-color: white;
+
 }

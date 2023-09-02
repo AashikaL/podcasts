@@ -1,0 +1,42 @@
+[
+    {
+      "images": "crime",
+      "resume": "Resume . 2D AGO'",
+      "title": "Chai & Chithi 15",
+      "description": "Welcome to Chai and Chithi, a segment where we take fan stories mailed in to us, as well as share so..",
+      "color": "brown",
+      "audiourl": "hukum",
+      "isPlaying": false,
+      "currentTime": 0
+    },
+    {
+      "images": "mahabratham",
+      "resume": "Resume . S1, E2",
+      "title": "Mahabharata Episode",
+      "description": "Welcome to Chai and Chithi, a segment where we take fan stories mailed in to us, as well as share so..",
+      "color": "green",
+      "audiourl": "hukum",
+      "isPlaying": false,
+      "currentTime": 0
+    },
+    {
+      "images": "ben",
+      "resume": "Resume . 21 AUG",
+      "title": "Lakhan Jathani and Nikhil Menon (Mizu lzakay)",
+      "description": "On this episode of Food From Here and There, I take to Japan with Lakshan Jethani...",
+      "audiourl": "hukum",
+      "color": "red",
+      "isPlaying": false,
+      "currentTime": 0
+    },
+    {
+      "images": "humberman",
+      "resume": "Resume . 1 MAR",
+      "title": "Dr. Davind Linden: Life, Death & the Neuroscience of Your Unique Experience",
+      "description": "In this episode, my guest is Dr. David",
+      "audiourl": ".hukum",
+      "color": "blue",
+      "isPlaying": false,
+      "currentTime": 0
+    }
+  ]
