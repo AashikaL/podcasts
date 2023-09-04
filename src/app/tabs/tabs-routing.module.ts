@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../album/album.module').then(m => m.AlbumPageModule)
       },
       {
+        path: 'album/:title',
+        loadChildren: () => import('../player/player.module').then(m => m.PlayerPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

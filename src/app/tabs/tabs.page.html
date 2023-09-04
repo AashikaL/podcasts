@@ -1,25 +1,23 @@
 <ion-tabs>
   <ion-tabs (ionTabsDidChange)="setSelectedTab()">
-
-    <!-- The dummy player stacked above the tabs -->
     <div class="player">
       <div class="progress-bar">
         <div class="progress" [style.width]="progress + '%'"></div>
       </div>
+  
       <ion-row class="ion-no-padding">
         <ion-col size="2" class="ion-no-padding">
           <img src="../../assets/download.jpeg">
         </ion-col>
         <ion-col size="8" class="ion-align-self-center">
           <b>All the Good Girls Go to Hell</b><br>
-          <span>Billie Eilish</span>
         </ion-col>
         <ion-col size="2" class="ion-text-center ion-no-padding ion-align-self-center">
-          <ion-icon name="play-sharp" color="dark" size="large"></ion-icon>
+          <ion-icon name="play-sharp" color="light" size="large"></ion-icon>
         </ion-col>
       </ion-row>
+    
     </div>
-  
 
 
   <ion-tab-bar [translucent]="true" slot="bottom">

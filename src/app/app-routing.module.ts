@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'album',
     loadChildren: () => import('./album/album.module').then( m => m.AlbumPageModule)
   },
+  {
+    path: 'player',
+    loadChildren: () => import('./player/player.module').then( m => m.PlayerPageModule)
+  },
 ];
 @NgModule({
   imports: [

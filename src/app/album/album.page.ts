@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import albums from '../../assets/mockdata/albums/index';
-import { Howl } from 'howler';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { PlayerService } from '../player.service';
 
 
 @Component({
@@ -15,7 +15,9 @@ export class AlbumPage implements OnInit {
   isPlaying: boolean = false;
   albumData: any = albums;
   data: any;
-  constructor(private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private player: PlayerService) {
+  }
+
   ngOnInit() {
     console.log('alubmdata', this.albumData)
     const title = this.activatedRoute.snapshot.paramMap.get('title');
@@ -24,18 +26,29 @@ export class AlbumPage implements OnInit {
       const decodedTitle = decodeURIComponent(title);
       this.data = this.albumData[title];
       console.log('data', this.data);
+     
     }
   }
+  openAlbum(album: any) {
+    const titleEscaped = encodeURIComponent(album.title);
+    this.router.navigateByUrl(`/tabs/album/${titleEscaped}`);
+    console.log('v', `${titleEscaped}`)
+  }
+
   dasherize(string: any) {
     return string.replace(/[A-Z]/g, function (char: any, index: any) {
       return (index !== 0 ? '-' : '') + char.toLowerCase();
     });
   };
+
+
+
   togglePlayback() {
     this.isPlaying = !this.isPlaying;
 
     if (this.data && this.data.audioUrl) {
       console.log('audio', this.data.audioUrl);
+
       if (this.isPlaying) {
         this.audio = new Audio(this.data.audioUrl);
         console.log('Audio element:', this.audio);
@@ -72,6 +85,8 @@ export class AlbumPage implements OnInit {
     item.isPlaying = true;
 
     this.currentAudio = audioElement;
+    // const object = this.data;   
+    //  this.player.pushToRecentlyPlayed(object);
     console.log('audio', this.currentAudio)
   }
   pauseAudio(item: any) {

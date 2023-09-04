@@ -30,12 +30,13 @@
 
     <!-- List of tracks -->
     <ion-list>
-      <ion-item href="#">
-        <ion-label>
-          <h1><b>Episodes</b></h1>
-        </ion-label>
+      <ion-item>
+        <ion-list-header>
+          <ion-label>Episode</ion-label>
+          <ion-button>See All</ion-button>
+        </ion-list-header>
       </ion-item>
-      <ion-item *ngFor="let t of data.tracks" lines="none">
+      <ion-item *ngFor="let t of data.tracks" lines="none" (click)=" openAlbum(t)">
         <ion-item>
           <ion-label><b class="update">{{t.update}}</b>
             <h5><b>{{ t.title }}</b></h5>
